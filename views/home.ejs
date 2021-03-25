@@ -1,0 +1,118 @@
+<%- include('includes/head.ejs') %>
+ 
+</head>
+
+<body>
+    <main>
+        <div class="row">
+            <div class="column">
+            <div class="card red" >
+                <h1>Motor 1</h1>
+                <div>
+                    <div class="column">
+                        <p>Frequency (Hz)</p>
+                    </div>
+                    <div class="column">
+                        <p>Duration (s)</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="column">
+                        <input type="number" class="frequency" placeholder="Frequency (Hz)"  value="0" id="freq-1">
+                    </div>
+                    <div class="column">
+                        <input type="number" class="duration" placeholder="Duration (s)" value="0"  id="dur-1">
+                    </div>
+                </div>
+            </div>
+            </div>
+        
+            <div class="column">
+            <div class="card red">
+                <h1>Motor 2</h1>
+                <div>
+                    <div class="column">
+                        <p>Frequency (Hz)</p>
+                    </div>
+                    <div class="column">
+                        <p>Duration (s)</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="column">
+                        <input type="number" class="frequency" placeholder="Frequency (Hz)" value="0" id="freq-2">
+                    </div>
+                    <div class="column">
+                        <input type="number" class="duration" placeholder="Duration (s)" value="0" id="dur-2">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+            <div class="card green">
+                <h1>Motor 3</h1>
+                <div>
+                    <div class="column">
+                        <p>Frequency (Hz)</p>
+                    </div>
+                    <div class="column">
+                        <p>Duration (s)</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="column">
+                        <input type="number" class="frequency" placeholder="Frequency (Hz)" value="0" id="freq-3">
+                    </div>
+                    <div class="column">
+                        <input type="number" class="duration" placeholder="Duration (s)" value="0" id="dur-3">
+                    </div>
+                </div>
+            </div>
+            </div>
+        
+            <div class="column">
+            <div class="card green">
+                <h1>Motor 4</h1>
+                <div>
+                    <div class="column">
+                        <p>Frequency (Hz)</p>
+                    </div>
+                    <div class="column">
+                        <p>Duration (s)</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="column">
+                        <input type="number" class="frequency" placeholder="Frequency (Hz)" value="0" id="freq-4">
+                    </div>
+                    <div class="column">
+                        <input type="number" class="duration" placeholder="Duration (s)" value="0" id="dur-4">
+                    </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column3">
+                <button id="port-button">Refresh Port</button>
+            </div>
+            <div class="column3">
+                <select name="port" id="ports">
+                </select>
+            </div>
+            <div class="column3">
+                <button id="connect-button">Connect</button>
+            </div>
+            <div class="column3">
+                <button id="update-button">Update Status</button>
+            </div>
+            <div class="column3">
+                <button id="run-button">Run</button>
+            </div>
+        </div>
+    </main>
+<%- include('includes/end.ejs') %>
+<script src="/js/jquery.js"></script>
+<script src="/js/main.js"></script>

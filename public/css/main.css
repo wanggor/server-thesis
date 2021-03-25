@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 50%;
+  height: 100%;
+  padding: 20px 10px;
+  
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {margin: 0 20vw; height: 40vh;}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  height: 100%;
+  text-align: center;
+  background-color: #f1f1f1;
+  border-radius: 5%;
+  vertical-align: middle;
+}
+
+input {
+  width: 100%;
+}
+
+select {
+  width: 100%;
+  color:  #4CAF50;
+  padding: 12px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
+button{
+  width: 100%;
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+button:hover{
+  cursor: pointer;
+}
+button:active{
+  background-color: #5CD761;
+}
+
+.column3{
+  float: left;
+  width: 20%;
+  height: 100%;
+  padding: 20px 10px;
+  
+}
+
+.red {
+  border: solid 2px #D71C3B;
+}
+
+.green {
+  border: solid 2px #4CAF50;
+}
