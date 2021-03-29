@@ -22,3 +22,4 @@ app.use(express.static(path.join(path.dirname(process.mainModule.filename), "pub
 app.use(mainRoute);
 
 const server = app.listen(8080);
+const io = require("./socket").init(server);

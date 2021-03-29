@@ -70,6 +70,27 @@ button{
   display: inline-block;
   font-size: 16px;
   border-radius: 5px;
+  white-space: wrap
+}
+
+.success{
+  background-color: #4CAF50;
+  color: white;
+  margin: 10px 20vw; 
+  min-height: 30px;
+  vertical-align: middle;
+  padding: 6px;
+  border-radius: 5px;
+}
+
+.error {
+  background-color: #D71C3B;
+  color: white;
+  margin: 10px 20vw; 
+  height: 30px;
+  vertical-align: middle;
+  padding: 6px;
+  border-radius: 5px;
 }
 
 button:hover{

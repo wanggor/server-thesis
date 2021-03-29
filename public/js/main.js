@@ -1,5 +1,26 @@
 
+var socket = io();
 
+socket.on('port', function(data){
+    if (data.port){
+        $(".error").hide()
+        $("#connect-button").html(data.port)
+    }else{
+        $(".error").hide()
+        $("#connect-button").html("Connect")
+    }
+});
+
+
+socket.on('error', function(data){
+    if (data.error){
+        $(".error").show()
+        $(".error").html(data.error)
+        $("#connect-button").html("Connect")
+    }else{
+        $(".error").hide()
+    }
+});
 
 var element = document.getElementById('connect-button');
 element.addEventListener("click", function(e) {
@@ -12,11 +33,11 @@ element.addEventListener("click", function(e) {
         if (status == 'success'){
             console.log(data)
             // location.reload()
-            if (data.data){
-                $("#connect-button").html("Connected " + data.port)
-            }else{
-                $("#connect-button").html("Connect")
-            }
+            // if (data.data){
+            //     $("#connect-button").html("Connected " + data.port)
+            // }else{
+            //     $("#connect-button").html("Connect")
+            // }
         }else{
             $("#connect-button").html("Connect")
         }
@@ -35,17 +56,20 @@ element.addEventListener("click", function(e) {
             frequency : elementsFreq[index].value,
             duration : elementsDur[index].value
         })
-    })  
+    })
+    $.post("/run", {data : JSON.stringify(data)}, function (data, status) {
+        if (status == 'success'){
+            console.log(data)
 
-    console.log(data)
-
-    fetch('/run')
-        .then((response) => {
-            return response.json();
-        })
-        .then((myJson) => {
-            console.log(myJson);
-        });
+            $(".success").show()
+            htmlText = "<ul>"
+            data.data.forEach(element => {
+                htmlText +=  "<li>"+element+"</li>"
+            });
+            htmlText += "</ul>"  
+            $(".success").html(htmlText)
+        }
+    })
 }, false);
 
 var element = document.getElementById('port-button');

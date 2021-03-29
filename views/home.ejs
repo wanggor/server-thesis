@@ -4,6 +4,7 @@
 
 <body>
     <main>
+        
         <div class="row">
             <div class="column">
             <div class="card red" >
@@ -94,7 +95,7 @@
             </div>
             </div>
         </div>
-        <div class="row">
+        <div style="margin: 0 20vw; height: 100px;" >
             <div class="column3">
                 <button id="port-button">Refresh Port</button>
             </div>
@@ -106,13 +107,22 @@
                 <button id="connect-button">Connect</button>
             </div>
             <div class="column3">
-                <button id="update-button">Update Status</button>
+                <button id="update-button">Status</button>
             </div>
             <div class="column3">
                 <button id="run-button">Run</button>
             </div>
         </div>
+        <div>
+            <div class="error" hidden>
+            </div>
+        </div>
+        <div>
+            <div class="success" hidden>
+            </div>
+        </div>
     </main>
 <%- include('includes/end.ejs') %>
 <script src="/js/jquery.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script src="/js/main.js"></script>

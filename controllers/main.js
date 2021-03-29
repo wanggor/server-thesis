@@ -9,8 +9,10 @@ exports.home = (req, res, next) => {
   });
 };
 
-exports.run = (req, res, next) => {
-  res.status(200).json({ data: "hello" });
+exports.run = async (req, res, next) => {
+  data = req.body;
+  data = JSON.parse(data.data);
+  serial.sendMultiple(res, data);
 };
 
 exports.refresh = (req, res, next) => {
