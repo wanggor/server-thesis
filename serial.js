@@ -7,20 +7,53 @@ module.exports = {
     isSendingReceive = false;
   },
 
-  buildConnect: () => {
+  buildConnect: async () => {
     serial = new SerialPort(port, {
       baudRate: 9600,
     });
     this.isSendingReceive = false;
   },
+  isConnect : async () => {
+    if (serial) {
+      return serial.isOpen
+    }else{
+      return false
+    }
+  },
   connect: async (port) => {
     if (serial) {
-      if (self.serialPort.isOpen) {
+      if (serial.isOpen) {
         await serial.close();
-        this.buildConnect();
+        serial = new SerialPort(
+          port,
+          {
+            baudRate: 9600,
+          },
+          function (err) {
+            if (err) {
+              return console.log("Error: ", err.message);
+            } else {
+              return console.log("OK");
+            }
+          }
+        );
+        this.isSendingReceive = false;
       }
     } else {
-      this.buildConnect();
+      serial = new SerialPort(
+        port,
+        {
+          baudRate: 9600,
+        },
+        function (err) {
+          if (err) {
+            return console.log("Error: ", err.message);
+          } else {
+            return console.log("OK");
+          }
+        }
+      );
+      this.isSendingReceive = false;
     }
   },
   send: async (res, text) => {
