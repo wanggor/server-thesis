@@ -100,11 +100,13 @@ module.exports = {
         sendingText = []
         let text;
         for (let index = 0; index < data.length; index++) {
+         
           const element = data[index];
-          text = "morun " + (index+1) + " 0" + " " +element.frequency + " " + element.duration + "\n";
+          text = "morun " + (index+1) + " 0" + " " +element.frequency + " " + element.duration + "\n\r";
           console.log(text)
           isSend = await serial.write(text);
           sendingText.push(text)
+        
         }
         res.status(200).json({ data: sendingText });
         this.isSendingReceive = false;
