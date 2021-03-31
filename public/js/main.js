@@ -59,15 +59,17 @@ element.addEventListener("click", function(e) {
     })
     $.post("/run", {data : JSON.stringify(data)}, function (data, status) {
         if (status == 'success'){
-            console.log(data)
-
-            $(".success").show()
-            htmlText = "<ul>"
-            data.data.forEach(element => {
-                htmlText +=  "<li>"+element+"</li>"
-            });
-            htmlText += "</ul>"  
-            $(".success").html(htmlText)
+            if (data.data){
+                $(".success").show()
+                htmlText = "<ul>"
+                data.data.forEach(element => {
+                    htmlText +=  "<li>"+element+"</li>"
+                });
+                htmlText += "</ul>"  
+                $(".success").html(htmlText)
+            }else{
+                $(".success").hide()
+            }            
         }
     })
 }, false);
